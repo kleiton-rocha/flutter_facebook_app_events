@@ -82,6 +82,11 @@ class FacebookAppEvents {
     return _channel.invokeMethod<void>('setUserData', args);
   }
 
+  /// Activate app
+  Future<void> activateApp() {
+    return _channel.invokeMethod<void>('activateApp');
+  }
+
   /// Clears the currently set user id.
   Future<void> clearUserID() {
     return _channel.invokeMethod<void>('clearUserID');

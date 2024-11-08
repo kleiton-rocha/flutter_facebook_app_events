@@ -42,6 +42,9 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         case "clearUserData":
             handleClearUserData(call, result: result)
             break
+        case "activateApp":
+            handleActivateApp(call, result: result)
+            break
         case "setUserData":
             handleSetUserData(call, result: result)
             break
@@ -115,6 +118,13 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         result(nil)
     }
 
+    
+    private func handleActivateApp(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        AppEvents.shared.activateApp()
+        result(nil)
+    }
+
+    
     private func handleGetApplicationId(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         result(Settings.shared.appID)
     }
